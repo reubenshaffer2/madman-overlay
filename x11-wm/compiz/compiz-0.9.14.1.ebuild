@@ -5,7 +5,7 @@ EAPI=7
 
 DESCRIPTION="Compiz Window Manager"
 HOMEPAGE="https://launchpad.net/compiz"
-SRC_URI="https://launchpad.net/${PN}/$(get_version_component_range 1-3)/${PV}/+download/${P}.tar.xz"
+SRC_URI="https://launchpad.net/${PN}/$(ver_cut 1-3)/${PV}/+download/${P}.tar.xz"
 
 LICENSE="GPL-2 LGPL-2.1 MIT"
 SLOT="0"
