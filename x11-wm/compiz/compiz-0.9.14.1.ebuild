@@ -42,7 +42,6 @@ COMMONDEPEND="
 DEPEND="${COMMONDEPEND}
 	app-admin/chrpath
 	virtual/pkgconfig
-	x11-proto/xineramaproto
 "
 
 RDEPEND="${COMMONDEPEND}
