@@ -1,4 +1,4 @@
---- compizconfig/compizconfig-python/CMakeLists.txt.orig	2019-11-27 08:24:31.000000000 -0500
+--- compizconfig/compizconfig-python/CMakeLists.txt	2019-11-27 08:24:31.000000000 -0500
 +++ compizconfig/compizconfig-python/CMakeLists.txt	2021-01-29 16:40:42.372316121 -0500
 @@ -16,13 +16,13 @@
  set (PY_COMPIZCONFIG_SRC ${CMAKE_CURRENT_BINARY_DIR}/compizconfig.c)
