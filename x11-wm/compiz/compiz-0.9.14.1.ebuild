@@ -50,6 +50,7 @@ RDEPEND="${COMMONDEPEND}
 "
 BDEPEND=""
 PYTHON_COMPAT=( python3_7 python3_8 )
+PATCHES="${FILESDIR}/${P}-cmake-cython.patch"
 
 inherit cmake python-single-r1 python-utils-r1
 
@@ -58,10 +59,11 @@ pkg_setup() {
 }
 
 src_prepare() {
+	default
 	# fix for icon paths
 	sed -i 's:DataDir = "@prefix@/share":DataDir = "/usr/share":' compizconfig/ccsm/ccm/Constants.py.in
 	# patch ccsm CMakeLists for cython
-	eapply -p0 "${FILESDIR}/${P}-cmake-cython.patch"
+	#eapply -p0 "${FILESDIR}/${P}-cmake-cython.patch"
 }
 
 src_configure() {
