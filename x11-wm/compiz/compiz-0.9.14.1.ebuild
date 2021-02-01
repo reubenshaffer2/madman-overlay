@@ -75,12 +75,12 @@ src_configure() {
 		-DPYTHON_LIBRARY=$(python_get_library_path)
 	)
 	cmake_src_configure
-	cmake_src_compile
 }
 
 src_install() {
-	pushd "${BUILD_DIR}"
-	emake install
-	popd
+	cmake_src_install
+#	pushd "${BUILD_DIR}"
+#	emake install
+#	popd
 }
 
