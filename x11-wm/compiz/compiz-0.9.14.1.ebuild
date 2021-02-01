@@ -70,7 +70,6 @@ src_prepare() {
 src_configure() {
 	BUILD_DIR=${WORKDIR}/build
 	local mycmakeargs=(
-		-DCMAKE_INSTALL_PREFIX=${D}
 		-DPYTHON_INCLUDE_DIR=$(python_get_includedir)
 		-DPYTHON_LIBRARY=$(python_get_library_path)
 	)
