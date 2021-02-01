@@ -52,7 +52,7 @@ BDEPEND=""
 PYTHON_COMPAT=( python3_7 python3_8 )
 PATCHES="${FILESDIR}/${P}-cmake-cython.patch"
 
-inherit cmake python-single-r1 python-utils-r1
+inherit cmake python-single-r1 python-utils-r1 gnome2-utils
 
 pkg_setup() {
 	python-single-r1_pkg_setup
@@ -76,10 +76,18 @@ src_configure() {
 	cmake_src_configure
 }
 
+pkg_preinst() {
+	gnome2_gconf_savelist
+}
+
 src_install() {
 	cmake_src_install
 #	pushd "${BUILD_DIR}"
 #	emake install
 #	popd
+}
+
+pkg_postinst() {
+	gnome2_gconf_install
 }
 
