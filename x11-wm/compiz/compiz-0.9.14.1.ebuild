@@ -61,7 +61,7 @@ src_prepare() {
 	# fix for icon paths
 	sed -i 's:DataDir = "@prefix@/share":DataDir = "/usr/share":' compizconfig/ccsm/ccm/Constants.py.in
 	# patch ccsm CMakeLists for cython
-	epatch "${FILESDIR}/${PN}-cmake-cython.patch"
+	eapply "${FILESDIR}/${PN}-cmake-cython.patch"
 }
 
 src_configure() {
