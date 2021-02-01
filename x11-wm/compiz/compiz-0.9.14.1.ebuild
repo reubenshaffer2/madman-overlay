@@ -17,7 +17,6 @@ COMMONDEPEND="
 	dev-cpp/glibmm
 	dev-libs/libxml2
 	dev-libs/libxslt
-	dev-python/pyrex
 	dev-libs/protobuf
 	media-libs/libpng
 	x11-base/xorg-server
