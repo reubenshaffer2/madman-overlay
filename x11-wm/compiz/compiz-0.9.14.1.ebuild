@@ -41,7 +41,6 @@ COMMONDEPEND="
 
 DEPEND="${COMMONDEPEND}
 	app-admin/chrpath
-	dev-util/gcovr
 	dev-util/lcov
 	virtual/pkgconfig
 	x11-proto/damageproto
