@@ -49,7 +49,6 @@ DEPEND="${COMMONDEPEND}
 "
 
 RDEPEND="${COMMONDEPEND}
-	dev-python/pygtk
 	x11-apps/mesa-progs
 	x11-apps/xvinfo
 "
