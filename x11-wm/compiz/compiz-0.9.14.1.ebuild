@@ -64,6 +64,7 @@ src_prepare() {
 	sed -i 's:DataDir = "@prefix@/share":DataDir = "/usr/share":' compizconfig/ccsm/ccm/Constants.py.in
 	# patch ccsm CMakeLists for cython
 	#eapply -p0 "${FILESDIR}/${P}-cmake-cython.patch"
+	cmake_src_prepare
 }
 
 src_configure() {
