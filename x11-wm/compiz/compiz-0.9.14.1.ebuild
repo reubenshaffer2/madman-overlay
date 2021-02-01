@@ -78,7 +78,7 @@ src_configure() {
 }
 
 src_install() {
-	pushd "${CMAKE_BUILD_DIR}"
+	pushd "${BUILD_DIR}"
 	emake install
 	popd
 }
