@@ -58,7 +58,7 @@ PATCHES="
 	${FILESDIR}/${P}-testing.patch
 "
 
-inherit cmake python-single-r1 python-utils-r1 gnome2-utils
+inherit cmake python-single-r1 python-utils-r1 gnome2-utils xdg-utils
 
 pkg_setup() {
 	python-single-r1_pkg_setup
@@ -86,6 +86,7 @@ src_configure() {
 
 pkg_preinst() {
 	gnome2_gconf_savelist
+	gnome2_schemas_savelist
 }
 
 src_install() {
@@ -94,5 +95,7 @@ src_install() {
 
 pkg_postinst() {
 	gnome2_gconf_install
+	gnome2_schemas_update
+	xdg_icon_cache_update
 }
 

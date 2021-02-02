@@ -14,7 +14,7 @@
  		      GLOBAL
  		      PROPERTY GSETTINGS_GLOBAL_INSTALL_DIR)
  
-+	message ("calling foobar")
++	#message ("calling foobar")
 +
  	# Recompile GSettings Schemas
  	install (CODE "
@@ -32,7 +32,7 @@
  	endif (COMPIZ_INHIBIT_ADD_INSTALL_RECOMPILE_RULE_SET)
  
  	if (NOT COMPIZ_INHIBIT_ADD_INSTALL_RECOMPILE_RULE)
-+		message ("foobar section")
++		#message ("foobar section")
  	    compiz_add_install_recompile_gsettings_schemas (${_dst} ${GSETTINGS_GLOBAL_INSTALL_DIR})
  	endif (NOT COMPIZ_INHIBIT_ADD_INSTALL_RECOMPILE_RULE)
  
