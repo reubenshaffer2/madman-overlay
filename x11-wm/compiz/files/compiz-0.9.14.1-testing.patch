@@ -1,0 +1,71 @@
+--- a/cmake/CMakeLists.txt	2019-11-27 08:24:31.000000000 -0500
++++ b/cmake/CMakeLists.txt	2021-02-01 22:27:08.332709872 -0500
+@@ -9,7 +9,6 @@
+     CompizPackage.cmake
+     CompizBcop.cmake
+     copy_file_install_user_env.cmake
+-    recompile_gsettings_schemas_in_dir_user_env.cmake
+     ${CMAKE_CURRENT_BINARY_DIR}/CompizDefaults.cmake
+ )
+ 
+--- a/cmake/CompizGSettings.cmake	2019-11-27 08:24:31.000000000 -0500
++++ b/cmake/CompizGSettings.cmake	2021-02-02 01:47:52.374608691 -0500
+@@ -44,6 +44,8 @@
+ 		      GLOBAL
+ 		      PROPERTY GSETTINGS_GLOBAL_INSTALL_DIR)
+ 
++	message ("calling foobar")
++
+ 	# Recompile GSettings Schemas
+ 	install (CODE "
+ 		 execute_process (COMMAND cmake -DSCHEMADIR_USER=${_schemadir_user} -DSCHEMADIR_ROOT=${GSETTINGS_GLOBAL_INSTALL_DIR} -P ${COMPIZ_CMAKE_MODULE_PATH}/recompile_gsettings_schemas_in_dir_user_env.cmake)
+@@ -68,7 +70,7 @@
+ 
+     if (PKG_CONFIG_TOOL AND
+ 	GLIB_COMPILE_SCHEMAS AND NOT
+-	COMPIZ_DISABLE_SCHEMAS_INSTALL)
++    COMPIZ_DISABLE_GS_SCHEMAS_INSTALL)
+ 
+ 	# Install schema file
+ 	install (CODE "
+@@ -99,12 +101,13 @@
+ 	endif (COMPIZ_INHIBIT_ADD_INSTALL_RECOMPILE_RULE_SET)
+ 
+ 	if (NOT COMPIZ_INHIBIT_ADD_INSTALL_RECOMPILE_RULE)
++		message ("foobar section")
+ 	    compiz_add_install_recompile_gsettings_schemas (${_dst} ${GSETTINGS_GLOBAL_INSTALL_DIR})
+ 	endif (NOT COMPIZ_INHIBIT_ADD_INSTALL_RECOMPILE_RULE)
+ 
+     endif (PKG_CONFIG_TOOL AND
+ 	   GLIB_COMPILE_SCHEMAS AND NOT
+-	   COMPIZ_DISABLE_SCHEMAS_INSTALL)
++       COMPIZ_DISABLE_GS_SCHEMAS_INSTALL)
+ endfunction ()
+ 
+ function (add_gsettings_local_recompilation_rule _schemas)
+--- a/compizconfig/compizconfig-python/CMakeLists.txt	2019-11-27 08:24:31.000000000 -0500
++++ b/compizconfig/compizconfig-python/CMakeLists.txt	2021-01-29 16:40:42.372316121 -0500
+@@ -16,13 +16,13 @@
+ set (PY_COMPIZCONFIG_SRC ${CMAKE_CURRENT_BINARY_DIR}/compizconfig.c)
+ set (PY_COMPIZCONFIG_CYTHON ${CMAKE_CURRENT_SOURCE_DIR}/src/compizconfig.pyx)
+ 
+-find_program(CYTHON_BIN cython3)
++find_program(CYTHON_BIN cython)
+ if(NOT CYTHON_BIN)
+   message(FATAL_ERROR "Can not build because cython binary not found.")
+ endif()
+ 
+ add_custom_command (OUTPUT ${PY_COMPIZCONFIG_SRC}
+-		    COMMAND ${CYTHON_BIN} -o ${PY_COMPIZCONFIG_SRC} ${PY_COMPIZCONFIG_CYTHON}
++		    COMMAND ${CYTHON_BIN} -3 -o ${PY_COMPIZCONFIG_SRC} ${PY_COMPIZCONFIG_CYTHON}
+ 		    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+ 		    DEPENDS ${PY_COMPIZCONFIG_CYTHON})
+ 
+--- a/postinst/CMakeLists.txt	2019-11-27 08:24:31.000000000 -0500
++++ b/postinst/CMakeLists.txt	2021-02-02 00:21:24.145075189 -0500
+@@ -6,5 +6,4 @@
+ 	      PROPERTY GSETTINGS_LOCAL_COMPILE_INHIBIT_RULE
+ 	      FALSE)
+ 
+-compiz_add_install_recompile_gsettings_schemas (${CMAKE_INSTALL_PREFIX}/share/glib-2.0/schemas)
+ add_all_gsettings_schemas_to_local_recompilation_rule ()

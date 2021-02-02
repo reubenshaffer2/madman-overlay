@@ -50,9 +50,12 @@ RDEPEND="${COMMONDEPEND}
 "
 BDEPEND=""
 PYTHON_COMPAT=( python3_7 python3_8 )
+#PATCHES="
+#	${FILESDIR}/${P}-cmake-cython.patch
+#	${FILESDIR}/${P}-cmake-gsettings.patch
+#"
 PATCHES="
-	${FILESDIR}/${P}-cmake-cython.patch
-	${FILESDIR}/${P}-cmake-gsettings.patch
+	${FILESDIR}/${P}-cmake-testing.patch
 "
 
 inherit cmake python-single-r1 python-utils-r1 gnome2-utils
