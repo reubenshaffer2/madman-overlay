@@ -85,9 +85,9 @@ pkg_preinst() {
 src_install() {
 	pushd "${BUILD_DIR}"
 	# Fix paths to avoid sandbox access violation
-	for i in `find . -type f -name "cmake_install.cmake"`; do 
-		sed -e "s|/usr|${D}/usr|g" -i "${i}"  || die "sed failed"
-	done
+	#for i in `find . -type f -name "cmake_install.cmake"`; do 
+	#	sed -e "s|/usr|${D}/usr|g" -i "${i}"  || die "sed failed"
+	#done
 	cmake_src_install
 #	emake install
 	popd
