@@ -18,3 +18,13 @@
  endfunction ()
  
  function (add_gsettings_local_recompilation_rule _schemas)
+--- a/cmake/CMakeLists.txt	2019-11-27 08:24:31.000000000 -0500
++++ b/cmake/CMakeLists.txt	2021-02-01 22:27:08.332709872 -0500
+@@ -9,7 +9,6 @@
+     CompizPackage.cmake
+     CompizBcop.cmake
+     copy_file_install_user_env.cmake
+-    recompile_gsettings_schemas_in_dir_user_env.cmake
+     ${CMAKE_CURRENT_BINARY_DIR}/CompizDefaults.cmake
+ )
+ 
