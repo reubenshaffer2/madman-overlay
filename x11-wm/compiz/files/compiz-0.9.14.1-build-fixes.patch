@@ -9,17 +9,8 @@
  )
  
 --- a/cmake/CompizGSettings.cmake	2019-11-27 08:24:31.000000000 -0500
-+++ b/cmake/CompizGSettings.cmake	2021-02-02 01:47:52.374608691 -0500
-@@ -44,6 +44,8 @@
- 		      GLOBAL
- 		      PROPERTY GSETTINGS_GLOBAL_INSTALL_DIR)
- 
-+	#message ("calling foobar")
-+
- 	# Recompile GSettings Schemas
- 	install (CODE "
- 		 execute_process (COMMAND cmake -DSCHEMADIR_USER=${_schemadir_user} -DSCHEMADIR_ROOT=${GSETTINGS_GLOBAL_INSTALL_DIR} -P ${COMPIZ_CMAKE_MODULE_PATH}/recompile_gsettings_schemas_in_dir_user_env.cmake)
-@@ -68,7 +70,7 @@
++++ b/cmake/CompizGSettings.cmake	2021-02-02 03:08:10.928156023 -0500
+@@ -68,7 +68,7 @@
  
      if (PKG_CONFIG_TOOL AND
  	GLIB_COMPILE_SCHEMAS AND NOT
@@ -28,13 +19,7 @@
  
  	# Install schema file
  	install (CODE "
-@@ -99,12 +101,13 @@
- 	endif (COMPIZ_INHIBIT_ADD_INSTALL_RECOMPILE_RULE_SET)
- 
- 	if (NOT COMPIZ_INHIBIT_ADD_INSTALL_RECOMPILE_RULE)
-+		#message ("foobar section")
- 	    compiz_add_install_recompile_gsettings_schemas (${_dst} ${GSETTINGS_GLOBAL_INSTALL_DIR})
- 	endif (NOT COMPIZ_INHIBIT_ADD_INSTALL_RECOMPILE_RULE)
+@@ -104,7 +104,7 @@
  
      endif (PKG_CONFIG_TOOL AND
  	   GLIB_COMPILE_SCHEMAS AND NOT

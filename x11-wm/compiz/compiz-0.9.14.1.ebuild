@@ -50,13 +50,7 @@ RDEPEND="${COMMONDEPEND}
 "
 BDEPEND=""
 PYTHON_COMPAT=( python3_7 python3_8 )
-#PATCHES="
-#	${FILESDIR}/${P}-cmake-cython.patch
-#	${FILESDIR}/${P}-cmake-gsettings.patch
-#"
-PATCHES="
-	${FILESDIR}/${P}-testing.patch
-"
+PATCHES="${FILESDIR}/${P}-build-fixes.patch"
 
 inherit cmake python-single-r1 python-utils-r1 gnome2-utils xdg-utils
 
@@ -68,8 +62,6 @@ src_prepare() {
 	#default
 	# fix for icon paths
 	sed -i 's:DataDir = "@prefix@/share":DataDir = "/usr/share":' compizconfig/ccsm/ccm/Constants.py.in
-	# patch ccsm CMakeLists for cython
-	#eapply -p0 "${FILESDIR}/${P}-cmake-cython.patch"
 	cmake_src_prepare
 }
 
