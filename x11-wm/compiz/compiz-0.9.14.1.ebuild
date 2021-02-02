@@ -76,7 +76,6 @@ src_configure() {
 		"-DPYTHON_INCLUDE_DIR=$(python_get_includedir)"
 		"-DPYTHON_LIBRARY=$(python_get_library_path)"
 		"-DCOMPIZ_DISABLE_GS_SCHEMAS_INSTALL=ON"
-		"-DCOMPIZ_DISABLE_SCHEMAS_INSTALL=ON"
 		"-DCOMPIZ_PACKAGING_ENABLED=ON"
 	)
 	cmake_src_configure
@@ -87,6 +86,9 @@ pkg_preinst() {
 }
 
 src_install() {
+	local mycmakeargs=(
+		"-DCOMPIZ_DISABLE_GS_SCHEMAS_INSTALL=ON"
+	)
 	cmake_src_install
 }
 
