@@ -72,9 +72,9 @@ src_configure() {
 	local mycmakeargs=(
 		"-DPYTHON_INCLUDE_DIR=$(python_get_includedir)"
 		"-DPYTHON_LIBRARY=$(python_get_library_path)"
+		"-DCOMPIZ_DISABLE_GS_SCHEMAS_INSTALL=ON"
 		"-DCOMPIZ_DISABLE_SCHEMAS_INSTALL=ON"
 		"-DCOMPIZ_PACKAGING_ENABLED=ON"
-		"-DCMAKE_BINARY_DIR=${D}"
 	)
 	cmake_src_configure
 }
@@ -84,14 +84,7 @@ pkg_preinst() {
 }
 
 src_install() {
-	pushd "${BUILD_DIR}"
-	# Fix paths to avoid sandbox access violation
-	#for i in `find . -type f -name "cmake_install.cmake"`; do 
-	#	sed -e "s|/usr|${D}/usr|g" -i "${i}"  || die "sed failed"
-	#done
 	cmake_src_install
-#	emake install
-	popd
 }
 
 pkg_postinst() {
