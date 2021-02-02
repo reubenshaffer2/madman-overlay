@@ -74,6 +74,7 @@ src_configure() {
 		"-DPYTHON_LIBRARY=$(python_get_library_path)"
 		"-DCOMPIZ_DISABLE_SCHEMAS_INSTALL=ON"
 		"-DCOMPIZ_PACKAGING_ENABLED=ON"
+		"-DCMAKE_BINARY_DIR=${D}"
 	)
 	cmake_src_configure
 }
