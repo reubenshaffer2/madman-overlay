@@ -1,0 +1,20 @@
+--- a/cmake/CompizGSettings.cmake	2019-11-27 08:24:31.000000000 -0500
++++ b/cmake/CompizGSettings.cmake	2021-02-01 21:48:37.459408556 -0500
+@@ -68,7 +68,7 @@
+ 
+     if (PKG_CONFIG_TOOL AND
+ 	GLIB_COMPILE_SCHEMAS AND NOT
+-	COMPIZ_DISABLE_SCHEMAS_INSTALL)
++    COMPIZ_DISABLE_GS_SCHEMAS_INSTALL)
+ 
+ 	# Install schema file
+ 	install (CODE "
+@@ -104,7 +104,7 @@
+ 
+     endif (PKG_CONFIG_TOOL AND
+ 	   GLIB_COMPILE_SCHEMAS AND NOT
+-	   COMPIZ_DISABLE_SCHEMAS_INSTALL)
++       COMPIZ_DISABLE_GS_SCHEMAS_INSTALL)
+ endfunction ()
+ 
+ function (add_gsettings_local_recompilation_rule _schemas)
