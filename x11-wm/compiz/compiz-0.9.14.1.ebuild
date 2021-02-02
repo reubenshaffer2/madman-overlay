@@ -55,7 +55,7 @@ PYTHON_COMPAT=( python3_7 python3_8 )
 #	${FILESDIR}/${P}-cmake-gsettings.patch
 #"
 PATCHES="
-	${FILESDIR}/${P}-cmake-testing.patch
+	${FILESDIR}/${P}-testing.patch
 "
 
 inherit cmake python-single-r1 python-utils-r1 gnome2-utils
