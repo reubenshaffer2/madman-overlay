@@ -86,9 +86,6 @@ pkg_preinst() {
 }
 
 src_install() {
-	local mycmakeargs=(
-		"-DCOMPIZ_DISABLE_GS_SCHEMAS_INSTALL=ON"
-	)
 	cmake_src_install
 }
 
