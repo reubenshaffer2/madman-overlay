@@ -74,6 +74,7 @@ src_configure() {
 		"-DCOMPIZ_DISABLE_GS_SCHEMAS_INSTALL=ON"
 		"-DCOMPIZ_PACKAGING_ENABLED=ON"
 		"-DCOMPIZ_WERROR=OFF"
+		"-DBUILD_GTK=OFF"
 	)
 	cmake_src_configure
 }
