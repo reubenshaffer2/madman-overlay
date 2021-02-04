@@ -51,6 +51,7 @@ RDEPEND="${COMMONDEPEND}
 BDEPEND=""
 PYTHON_COMPAT=( python3_8 python3_7 )
 PATCHES="${FILESDIR}/${P}-build-fixes.patch"
+CMAKE_MAKEFILE_GENERATOR=emake
 
 inherit cmake python-single-r1 python-utils-r1 gnome2-utils xdg-utils
 
