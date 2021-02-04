@@ -49,7 +49,7 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/xvinfo
 "
 BDEPEND=""
-PYTHON_COMPAT=( python3_7 python3_8 )
+PYTHON_COMPAT=( python3_8 python3_7 )
 PATCHES="${FILESDIR}/${P}-build-fixes.patch"
 
 inherit cmake python-single-r1 python-utils-r1 gnome2-utils xdg-utils
