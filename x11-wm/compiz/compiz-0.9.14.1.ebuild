@@ -72,6 +72,7 @@ src_configure() {
 		"-DPYTHON_LIBRARY=$(python_get_library_path)"
 		"-DCOMPIZ_DISABLE_GS_SCHEMAS_INSTALL=ON"
 		"-DCOMPIZ_PACKAGING_ENABLED=ON"
+		"-DCOMPIZ_WERROR=OFF"
 	)
 	cmake_src_configure
 }
