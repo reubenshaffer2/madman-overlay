@@ -57,3 +57,13 @@ src_configure() {
 	./autogen.sh
 }
 
+src_compile() {
+	cd "${WORKDIR}/${PN}"
+	emake
+}
+
+src_install() {
+	cd "${WORKDIR}/${PN}"
+	emake install
+}
+
