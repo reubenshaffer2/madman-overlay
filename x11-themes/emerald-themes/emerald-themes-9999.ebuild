@@ -18,4 +18,9 @@ BDEPEND=""
 
 inherit git-r3
 
+src_configure() {
+	cd "${WORKDIR}/${PF}"
+	./autogen.sh
+}
+
 
