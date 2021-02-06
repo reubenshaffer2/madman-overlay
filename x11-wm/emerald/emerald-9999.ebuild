@@ -20,7 +20,8 @@ inherit git-r3 autotools xdg-utils
 
 src_prepare() {
 	default
-	eautoreconf
+	#eautoreconf
+	./autogen.sh
 }
 
 pkg_postinst() {
