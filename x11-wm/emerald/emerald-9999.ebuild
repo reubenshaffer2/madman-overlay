@@ -16,10 +16,14 @@ DEPEND="x11-wm/compiz"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
-inherit git-r3 autotools
+inherit git-r3 autotools xdg-utils
 
 src_prepare() {
 	default
 	eautoreconf
+}
+
+pkg_postinst() {
+	xdg_icon_cache_update
 }
 
