@@ -18,8 +18,9 @@ BDEPEND=""
 
 inherit git-r3 autotools xdg-utils
 
-src_configure() {
-	./autogen.sh
+src_prepare() {
+	default
+	eautoreconf
 }
 
 pkg_postinst() {
