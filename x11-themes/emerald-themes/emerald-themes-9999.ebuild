@@ -27,7 +27,3 @@ src_configure() {
 	econf --prefix=/usr/local
 }
 
-#src_configure() {
-#	./autogen.sh
-#}
-
