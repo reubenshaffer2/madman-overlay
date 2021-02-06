@@ -50,11 +50,15 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/xvinfo
 "
 BDEPEND=""
-#PYTHON_COMPAT=( python3_8 python3_7 )
-inherit git-r3 autotools
+inherit git-r3 autotools xdg-utils
 
 src_prepare() {
 	default
 	eautoreconf
 }
+
+pkg_postinst() {
+	xdg_icon_cache_update
+}
+
 
