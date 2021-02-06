@@ -51,10 +51,10 @@ RDEPEND="${COMMONDEPEND}
 "
 BDEPEND=""
 #PYTHON_COMPAT=( python3_8 python3_7 )
-inherit git-r3
+inherit git-r3 autotools
 
-src_configure() {
-	cd "${WORKDIR}/${PN}"
-	./autogen.sh
+src_prepare() {
+	default
+	eautoreconf
 }
 

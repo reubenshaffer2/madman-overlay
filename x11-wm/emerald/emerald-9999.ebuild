@@ -16,10 +16,10 @@ DEPEND="x11-wm/compiz"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
-inherit git-r3
+inherit git-r3 autotools
 
-src_configure() {
-	cd "${WORKDIR}/${PF}"
-	./autogen.sh
+src_prepare() {
+	default
+	eautoreconf
 }
 
