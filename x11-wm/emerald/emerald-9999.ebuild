@@ -23,6 +23,10 @@ src_prepare() {
 	eautoreconf
 }
 
+src_configure() {
+	econf --prefix=/usr/local
+}
+
 pkg_postinst() {
 	xdg_mimeinfo_database_update
 	xdg_icon_cache_update
