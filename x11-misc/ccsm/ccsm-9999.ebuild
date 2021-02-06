@@ -30,7 +30,7 @@ BDEPEND=""
 inherit git-r3 autotools xdg-utils
 
 src_install() {
-	python setup.py install --prefix=/usr
+	python setup.py install --prefix="${D}/usr"
 }
 
 pkg_postinst() {
